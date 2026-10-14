@@ -19,24 +19,13 @@ export function BoardGrid() {
     <div className="board">
       <svg className="hexagon-grid">
         {hexagons.map((hex: any, index: number) => {
-          const pointsString = hex.points ? 
-          hex.points.map((p: { x: number, y: number }) => `${p.x},${p.y}`).join(' ') : ''
+          const points = hex.points.map((p: any) => `${p.x},${p.y}`).join(' ')
           return (
             <g key={index}>
-              {pointsString && (
-                <polygon
-                  points={pointsString}
-                  className="polygon"/>
-                )}
-                {hex.center && (
-                  <text
-                  x={hex.center.x}
-                  y={hex.center.y}
-                  className="text"
-                  >
-                  {hex.coordinate ? `${hex.cordinate.x}, ${hex.cordinate.y}` : index + 1}
-                  </text>
-                )}
+              <polygon points={points}/>
+                <text className="polygon-text" x={hex.center.x} y={hex.center.y}>
+                  {index + 1}  
+                </text>
               </g>
               )
           })}
