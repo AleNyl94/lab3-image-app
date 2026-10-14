@@ -28,7 +28,7 @@ The application is built from separate projects. Neither module depends on the a
 
 ### Cards
 
-- **R4:** The user can create resource cards (5 types) and development cards (knight, victory point, road building, year of plenty, monopoly) with a custom title and text.
+- **R4:** The user can create resource cards (5 types).
 - **R5:** The user can upload an image for a card, and the image is automatically adapted to the card format without being distorted.
 - **R6:** The user can upload custom images for the terrain types, and the images are adapted to fit the hexagon tiles.
 
