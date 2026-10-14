@@ -2,6 +2,11 @@
 
 import { HexGrid, Hexagon } from "midgard-hex-grid"
 
+/**
+ * The grid with hexagons that will display the tiles.
+ *
+ * @returns The hexagon-grid.
+ */
 export function BoardGrid() {
   const grid = new HexGrid('x-dominated')
   const hexagons = grid.createGrid({
