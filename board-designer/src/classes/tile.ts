@@ -8,18 +8,18 @@ type TerrainType = 'forest' | 'hills' | 'pasture' | 'fields' | 'mountains' | 'de
  */
 export class Tile {
   private readonly type: TerrainType
-  private numberToken: number
+  private imageFile: File
 
-  constructor(type: TerrainType, numberToken: number) {
+  constructor(type: TerrainType, imageFile: File) {
     this.type = type
-    this.numberToken = numberToken
+    this.imageFile = imageFile
   }
 
   public getType(): TerrainType {
     return this.type
   }
 
-  public getNumbertoken(): number {
-    return this.numberToken
+  public getImageFile(): File {
+    return this.imageFile
   }
 }
