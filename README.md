@@ -4,7 +4,15 @@ A web application for designing your own custom theme for Catan – the board an
 
 ## Vision
 
-Hex Settlers Designer lets board game enthusiasts create their own custom theme for Catan: design the board, upload their own artwork for terrain tiles and cards, and see the complete result – the board and the card deck – presented directly in the browser.
+Hex Settlers Designer lets board game enthusiasts create their own custom theme for Catan: design the board, upload their own artwork for terrain tiles and cards, and see the complete result, the board and the card deck, presented directly in the browser.
+
+The setup for the tiles that are being made are;
+- 4 Forest
+- 4 Pasture
+- 4 Fields
+- 3 Hills
+- 3 Mountains
+- 1 Desert
 
 The application does not produce or print any physical items. Everything is created and presented digitally.
 
