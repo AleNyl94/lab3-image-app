@@ -22,9 +22,9 @@ The application is built from separate projects. Neither module depends on the a
 
 ### Board
 
-- **R1:** The user can place terrain types on a 19-tile board, or generate a complete board randomly.
-- **R2:** The user can place number tokens (2–12) on the tiles.
-- **R3:** The application warns the user if a 6 and an 8 are placed on neighbouring tiles.
+- **R1:** The user can choose pictures for the different terrains/resources, total 6. 
+- **R2:** The user can preview a display of the board with the tiles set up randomly.
+- **R3:** The application .
 
 ### Cards
 
@@ -34,10 +34,9 @@ The application is built from separate projects. Neither module depends on the a
 
 ### Presentation and quality
 
-- **R7:** The user can view the whole card deck in an overview and open a single card in a large detail view.
-- **R8:** The application shows how much memory the theme uses, and scales the images down if a chosen limit is exceeded, showing how much memory was saved.
-- **R9:** The application warns the user if an uploaded image has too low a resolution to look sharp.
-- **R10:** The user receives a clear error message when uploading an unsupported file type.
+- **R7:** The user can view all the resource-cards.
+- **R8:** The application warns the user if an uploaded image is uploaded twice.
+- **R9:** The user receives a clear error message when uploading an unsupported file type.
 
 
 ## Scope limitations
