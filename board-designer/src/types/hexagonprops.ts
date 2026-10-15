@@ -6,6 +6,5 @@ export type HexagonTileProps = {
     zIndex: number;
   },
   index: number,
-  imageSrc?: string,
-  onClick?: () => void
+  imageSrc?: string
 };

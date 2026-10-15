@@ -1,14 +1,13 @@
 import React from 'react'
 import { HexagonTileProps } from '../types/hexagonprops'
 
-export function HexagonTile({ hexagon, imageSrc, onClick} : HexagonTileProps) {
+export function HexagonTile({ hexagon, imageSrc } : HexagonTileProps) {
   const pointsString = hexagon.points.map((p) => `${p.x}, ${p.y}`).join('')
 
   const clipId = `clip-${hexagon.coordinate.x}--${hexagon.coordinate.y}`
   return (
-    <g 
-      onClick={onClick}
-      className="cursor-pointer-group"
+    <g
+      className="hexagon-mask"
       >
       <defs>
         <clipPath id={clipId}>

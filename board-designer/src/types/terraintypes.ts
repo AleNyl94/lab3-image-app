@@ -1,0 +1,1 @@
+export const TERRAIN_TYPES = ['forest', 'hills', 'pasture', 'fields', 'mountains', 'desert']
