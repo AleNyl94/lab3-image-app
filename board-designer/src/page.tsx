@@ -18,14 +18,39 @@ export function page() {
     }))
   }
 
+  const isImagesFull = Object.keys(uploadedImages).length === TERRAIN_TYPES.length
+
+  const handleGenerateBoard = () => {
+    if (!isImagesFull)
+      return
+      setBoard(true)
+  }
+
   return(
-    <div className="grid-container">
-      {TERRAIN_TYPES.map((type) => (
-        <ImageUploader
-          label={`Upload a image for ${type}`}
-          onImageValid={(file) => handleUploadedImages(type, file)}
-        />
-      ))}
-    </div>
+    <>
+      <h1>Create your own game-board!</h1>
+      <div className="image-dropzones">
+        {TERRAIN_TYPES.map((type) => (
+          <ImageUploader
+            label={`Upload a image for ${type}`}
+            onImageValid={(file) => handleUploadedImages(type, file)}
+          />
+        ))}
+      </div>
+      <div className="generate-button-zone">
+        <button 
+          onClick={handleGenerateBoard}
+          disabled={!isImagesFull}
+          className="generate-button"
+        >
+          { isImagesFull 
+          ? 'Generate board'
+          : `Upload images (${Object.keys(uploadedImages).length}/6)`}
+        </button>
+        <div className="game-board-container">
+          
+        </div>
+      </div>
+    </>
   )
 }
