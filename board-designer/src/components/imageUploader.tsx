@@ -1,13 +1,16 @@
 'use client'
 
 import React, { useState } from 'react'
+import { getImageDimension } from '../functions/getimagedimensions'
+import { createImageUrl } from '../functions/createImageUrl'
+import { scaleToRatio } from '../../../lab2-ts-module'
 
 /**
  * Properties for the imageUploader component.
  */
 interface ImageUploaderProps {
   label: string,
-  onImageValid: (file: File) => void;
+  onImageValid: (file: File, imageUrl: string, formattedImage: any) => void;
 }
 
 /**
@@ -22,8 +25,10 @@ export function ImageUploader({ label, onImageValid }: ImageUploaderProps) {
   const [ error, setError ] = useState<string | null>(null)
   const fileTypes = ['image/jpeg', 'image/png', 'image/webp']
   
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
+
+
     if (!file) return
 
     if (!fileTypes.includes(file.type)) {
@@ -31,7 +36,10 @@ export function ImageUploader({ label, onImageValid }: ImageUploaderProps) {
       return
     }
     setError(null)
-    onImageValid(file)
+    const imageUrl = createImageUrl(file)
+    const { width, height } = await getImageDimension(imageUrl)
+    const formattedImage = scaleToRatio({ height, width, aspectRatio: { width: 100, height: 100 }})
+    onImageValid(file, imageUrl, formattedImage)
   }
 
   return(

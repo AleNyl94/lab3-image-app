@@ -1,11 +1,15 @@
 'use client'
 import React from 'react'
 import { HexagonTileProps } from '../types/hexagonprops'
+import { scaleToRatio } from '../../../lab2-ts-module'
 
 export function HexagonTile({ hexagon, imageSrc } : HexagonTileProps) {
   const pointsString = hexagon.points.map((p) => `${p.x}, ${p.y}`).join('')
 
   const clipId = `clip-${hexagon.coordinate.x}--${hexagon.coordinate.y}`
+
+  
+
   return (
     <g
       className="hexagon-mask"
@@ -26,15 +30,6 @@ export function HexagonTile({ hexagon, imageSrc } : HexagonTileProps) {
             y={hexagon.center.y - 45}
             className="tileImage"
             />
-        )}
-        {!imageSrc && (
-          <text
-            x={hexagon.center.x}
-            y={hexagon.center.y}
-            className="noTileImage"
-          >
-            {`${hexagon.coordinate.x},${hexagon.coordinate.y}`}
-          </text>
         )}
     </g>
   )
