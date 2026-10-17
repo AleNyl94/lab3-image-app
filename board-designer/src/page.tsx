@@ -4,19 +4,25 @@ import { BoardGrid } from './components/boardGrid'
 import { HexagonTile } from './components/hexagonTile'
 import { TERRAIN_TYPES } from './types/terraintypes'
 
+type UploadedImage = {
+  file: File
+  imageUrl: string
+  formattedImage: any
+}
+
 /**
  * The main page for the application.
  * 
  * @returns The main page.
  */
 export function page() {
-  const [ uploadedImages, setUploadedImages ] = useState<Record<string, File>>({})
+  const [ uploadedImages, setUploadedImages ] = useState<Record<string, UploadedImage>>({})
   const [ board, setBoard ] = useState(false)
 
-  const handleUploadedImages = (type: string, file: File) => {
+  const handleUploadedImages = (type: string, file: File, imageUrl: string, formattedImage: any) => {
     setUploadedImages(prevImages => ({
       ...prevImages,
-      [type]: file
+      [type]: {file, imageUrl, formattedImage}
     }))
   }
 
@@ -35,7 +41,7 @@ export function page() {
         {TERRAIN_TYPES.map((type) => (
           <ImageUploader
             label={`Upload a image for ${type}`}
-            onImageValid={(file) => handleUploadedImages(type, file)}
+            onImageValid={( file, imageUrl, formattedImage ) => handleUploadedImages(type, file, imageUrl, formattedImage)}
           />
         ))}
       </div>
@@ -50,11 +56,7 @@ export function page() {
           : `Upload images (${Object.keys(uploadedImages).length}/6)`}
         </button>
         <div className="game-board-container">
-          <BoardGrid>
-            <HexagonTile
-            imageSrc={imageUrl}
-            />
-          </BoardGrid>
+          {board && <BoardGrid tiles={shuffledBoardTiles}/>}
         </div>
       </div>
     </>
