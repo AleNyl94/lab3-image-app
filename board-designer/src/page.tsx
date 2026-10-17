@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { ImageUploader } from './components/imageUploader'
+import { BoardGrid } from './components/boardGrid'
+import { HexagonTile } from './components/hexagonTile'
 import { TERRAIN_TYPES } from './types/terraintypes'
+import { createImageUrl } from './functions/createImageUrl'
 
 /**
  * The main page for the application.
@@ -12,6 +15,7 @@ export function page() {
   const [ board, setBoard ] = useState(false)
 
   const handleUploadedImages = (type: string, file: File) => {
+    const imageUrl = createImageUrl(file)
     setUploadedImages(prevImages => ({
       ...prevImages,
       [type]: file
@@ -48,7 +52,11 @@ export function page() {
           : `Upload images (${Object.keys(uploadedImages).length}/6)`}
         </button>
         <div className="game-board-container">
-          
+          <BoardGrid>
+            <HexagonTile
+            imageSrc={imageUrl}
+            />
+          </BoardGrid>
         </div>
       </div>
     </>
