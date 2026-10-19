@@ -3,9 +3,9 @@ import { HexagonTile } from "../components/hexagonTile";
  * Suffles the tiles for the board.
  * 
  * @param array - Array of tiles 
- * @returns The 
+ * @returns shufflesBoardTiles - The tiles in a random order. 
  */
-export function shuffleTiles(array: (typeof HexagonTile)[]) {
+export function shuffleTiles<T>(array: T[]): T[] {
   const shuffledBoardTiles = [...array]
   for (let i = shuffledBoardTiles.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));

@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import { HexagonTileProps } from '../types/hexagonprops'
-import { scaleToRatio } from '../../../lab2-ts-module'
 
 export function HexagonTile({ hexagon, imageSrc } : HexagonTileProps) {
   const pointsString = hexagon.points.map((p) => `${p.x}, ${p.y}`).join('')

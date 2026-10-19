@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { HexGrid, Hexagon } from "midgard-hex-grid"
+import { HexGrid } from "midgard-hex-grid"
 import { HexagonTile } from "./hexagonTile"
 
 /**
