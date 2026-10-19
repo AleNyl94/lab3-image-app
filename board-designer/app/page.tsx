@@ -1,9 +1,9 @@
+'use client'
 import { useState } from 'react'
-import { ImageUploader } from './components/imageUploader'
-import { BoardGrid } from './components/boardGrid'
-import { HexagonTile } from './components/hexagonTile'
-import { TERRAIN_TYPES } from './types/terraintypes'
-import { generateBoard } from './functions/generateBoard'
+import { ImageUploader } from '../src/components/imageUploader'
+import { BoardGrid } from '../src/components/boardGrid'
+import { TERRAIN_TYPES } from '../src/types/terraintypes'
+import { generateBoard } from '../src/functions/generateBoard'
 
 type UploadedImage = {
   file: File
@@ -16,7 +16,7 @@ type UploadedImage = {
  * 
  * @returns The main page.
  */
-export function page() {
+export default function Page() {
   const [ uploadedImages, setUploadedImages ] = useState<Record<string, UploadedImage>>({})
   const [ board, setBoard ] = useState<any[] | null>(null)
 
@@ -30,7 +30,8 @@ export function page() {
   const isImagesFull = Object.keys(uploadedImages).length === TERRAIN_TYPES.length
 
   const handleGenerateBoard = () => {
-    if (!isImagesFull) {
+    console.log("Generera-knappen trycktes!")
+    if (isImagesFull) {
       const newBoard = generateBoard(uploadedImages)
       setBoard(newBoard)
     }
@@ -42,6 +43,7 @@ export function page() {
       <div className="image-dropzones">
         {TERRAIN_TYPES.map((type) => (
           <ImageUploader
+            key={type}
             label={`Upload a image for ${type}`}
             onImageValid={( file, imageUrl, formattedImage ) => handleUploadedImages(type, file, imageUrl, formattedImage)}
           />

@@ -8,18 +8,18 @@
     "@testing-library/react": "^16.3.3",
     "@testing-library/user-event": "^13.5.0",
     "image-processing-module": "file:./lab2-ts-module",
-    "midgard-hex-grid": "file:vendor/midgard-hex-grid-1.0.0.tgz",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0",
+    "midgard-hex-grid": "file:./midgard",
+    "next": "^16.4.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "react-scripts": "^0.0.0",
     "vitest": "^5.0.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.3.0",
-    "@types/react-dom": "^19.3.0"
+    "@types/react-dom": "^19.3.0",
+    "typescript": "7.0.2"
   }
 }

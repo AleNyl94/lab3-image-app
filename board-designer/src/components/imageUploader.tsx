@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { getImageDimension } from '../functions/getimagedimensions'
 import { createImageUrl } from '../functions/createImageUrl'
-import { scaleToRatio } from '../../../lab2-ts-module'
+import { scaleToRatio } from 'image-processing-module'
 
 /**
  * Properties for the imageUploader component.
