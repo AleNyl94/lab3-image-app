@@ -17,7 +17,7 @@ type UploadedImage = {
  * @param boardPositions The positions on the Catan-board.
  * @returns 
  */
-export function generateBoard(uploadedImages: Record<string, UploadedImage>, boardPositions: any[]) {
+export function generateBoard(uploadedImages: Record<string, UploadedImage>) {
  
 
   const tileTemplates = [ 'forest', 'forest', 'forest', 'forest', 'pasture', 'pasture', 'pasture', 'pasture', 
@@ -28,8 +28,7 @@ export function generateBoard(uploadedImages: Record<string, UploadedImage>, boa
   for(let i = 0; i < tileTemplates.length; i++) {
     const type = tileTemplates[i]
     const imageUrl = uploadedImages[type]?.imageUrl
-    const geometry = boardPositions[i]
-    boardTiles.push({ id: i, type: type, imageUrl: imageUrl, hexagon: geometry })
+    boardTiles.push({ id: i, type: type, imageUrl: imageUrl })
   }
 
   const shuffledBoardTiles = shuffleTiles(boardTiles)
