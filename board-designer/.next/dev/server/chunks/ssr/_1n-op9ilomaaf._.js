@@ -1502,15 +1502,43 @@ function BoardGrid({ tiles }) {
     const hexagons = grid.createGrid({
         hexDiameter: 120,
         skeletonWidth: 3,
-        skeletonHeight: 3,
-        fillAround: true
-    }).slice(0, 19);
+        skeletonHeight: 3
+    });
+    const rowsMap = new Map();
+    rawHexagons.forEach((hex)=>{
+        const y = hex.coordinate.y;
+        if (!rowsMap.has(y)) {
+            rowsMap.set(y, []);
+        }
+        rowsMap.get(y).push(hex);
+    });
+    for (const [y, hexs] of rowsMap.entries()){
+        hexs.sort((a, b)=>a.coordinate.x - b.coordinate.x);
+    }
+    const sortedRows = Array.from(rowsMap.entries()).sort(([yA], [yB])=>yA - yB).map(([_, hexs])=>hexs);
+    const targetPattern = [
+        3,
+        4,
+        5,
+        4,
+        3
+    ];
+    let catanRows = [];
+    for(let i = 0; i <= sortedRows.length - targetPattern.length; i++){
+        const slice = sortedRows.slice(i, i + targetPattern.length);
+        const matches = slice.every((row, idx)=>row.length === targetPattern[idx]);
+        if (matches) {
+            catanRows = slice;
+            break;
+        }
+    }
+    const formattedHexagons = catanRows.length > 0 ? catanRows.flat() : rawHexagons.slice(0, 19);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "board",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
             className: "hexagon-grid",
             viewBox: "-100 -10 700 600",
-            children: hexagons.map((hex, index)=>{
+            children: formattedHexagons.map((hex, index)=>{
                 const tile = tiles[index];
                 if (!hex || !hex.points) return null;
                 const points = hex.points.map((p)=>`${p.x},${p.y}`).join(' ');
@@ -1521,18 +1549,18 @@ function BoardGrid({ tiles }) {
                     imageSrc: tile?.imageUrl
                 }, index, false, {
                     fileName: "[project]/src/components/boardGrid.tsx",
-                    lineNumber: 29,
+                    lineNumber: 59,
                     columnNumber: 13
                 }, this);
             })
         }, void 0, false, {
             fileName: "[project]/src/components/boardGrid.tsx",
-            lineNumber: 23,
+            lineNumber: 53,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/boardGrid.tsx",
-        lineNumber: 22,
+        lineNumber: 52,
         columnNumber: 5
     }, this);
 }
