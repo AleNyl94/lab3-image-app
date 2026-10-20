@@ -21,20 +21,23 @@ interface ImageUploaderProps {
  * @param props.onImageValid - Callback triggered with the validated file.
  * @returns A JSX element containing the file input and error message display.
  */
-export function ImageUploader({ label, onImageValid }: ImageUploaderProps) {
+export function ImageUploader({ label, onImageValid, existingImageNames = [] }: ImageUploaderProps) {
   const [ error, setError ] = useState<string | null>(null)
   const fileTypes = ['image/jpeg', 'image/png', 'image/webp']
   
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
-
-
     if (!file) return
 
     if (!fileTypes.includes(file.type)) {
       setError('Invalid format, please use JPEG, PNG or WebP')
       return
     }
+
+    if (existingImageNames.include(file.name)) {
+      setError('This file has already been uploaded')
+    }
+
     setError(null)
     const rawImageUrl = createImageUrl(file)
     const { width, height } = await getImageDimension(rawImageUrl)

@@ -32,7 +32,7 @@ The application is built from separate projects. Neither module depends on the a
 
 - **R1:** The user can choose pictures for the different terrains/resources, total 6. 
 - **R2:** The user can preview a display of the board with the tiles set up randomly.
-- **R3:** The application .
+- **R3:** The board is generated when pressing the generate-button.
 
 ### Cards
 

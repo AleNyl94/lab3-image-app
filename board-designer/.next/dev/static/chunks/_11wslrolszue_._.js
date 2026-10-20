@@ -2147,6 +2147,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 'use client';
 ;
 function HexagonTile({ hexagon, imageSrc }) {
+    if (!imageSrc) {
+        return null;
+    }
     const pointsString = hexagon.points.map((p)=>`${p.x}, ${p.y}`).join(' ');
     const clipId = `clip-${hexagon.coordinate.x}--${hexagon.coordinate.y}`;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
@@ -2159,17 +2162,17 @@ function HexagonTile({ hexagon, imageSrc }) {
                         points: pointsString
                     }, void 0, false, {
                         fileName: "[project]/src/components/hexagonTile.tsx",
-                        lineNumber: 18,
+                        lineNumber: 19,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/hexagonTile.tsx",
-                    lineNumber: 17,
+                    lineNumber: 18,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/hexagonTile.tsx",
-                lineNumber: 16,
+                lineNumber: 17,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("polygon", {
@@ -2177,7 +2180,7 @@ function HexagonTile({ hexagon, imageSrc }) {
                 className: "tile"
             }, void 0, false, {
                 fileName: "[project]/src/components/hexagonTile.tsx",
-                lineNumber: 21,
+                lineNumber: 22,
                 columnNumber: 7
             }, this),
             imageSrc && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("image", {
@@ -2191,13 +2194,13 @@ function HexagonTile({ hexagon, imageSrc }) {
                 className: "tile-image"
             }, void 0, false, {
                 fileName: "[project]/src/components/hexagonTile.tsx",
-                lineNumber: 26,
+                lineNumber: 27,
                 columnNumber: 11
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/hexagonTile.tsx",
-        lineNumber: 13,
+        lineNumber: 14,
         columnNumber: 5
     }, this);
 }
@@ -2228,7 +2231,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-function ImageUploader({ label, onImageValid }) {
+function ImageUploader({ label, onImageValid, existingImageNames = [] }) {
     _s();
     const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const fileTypes = [
@@ -2243,6 +2246,9 @@ function ImageUploader({ label, onImageValid }) {
             setError('Invalid format, please use JPEG, PNG or WebP');
             return;
         }
+        if (existingImageNames.include(file.name)) {
+            setError('This file has already been uploaded');
+        }
         setError(null);
         const rawImageUrl = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$functions$2f$createImageUrl$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createImageUrl"])(file);
         const { width, height } = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$functions$2f$getimagedimensions$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getImageDimension"])(rawImageUrl);
@@ -2250,8 +2256,8 @@ function ImageUploader({ label, onImageValid }) {
             height,
             width,
             aspectRatio: {
-                width: 160,
-                height: 160
+                width: 1,
+                height: 1
             }
         });
         const formattedFile = await resizeImageToFile(rawImageUrl, formattedImage, file.name, file.type);
@@ -2271,7 +2277,7 @@ function ImageUploader({ label, onImageValid }) {
                     className: "hidden"
                 }, void 0, false, {
                     fileName: "[project]/src/components/imageUploader.tsx",
-                    lineNumber: 51,
+                    lineNumber: 54,
                     columnNumber: 9
                 }, this),
                 error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2279,18 +2285,18 @@ function ImageUploader({ label, onImageValid }) {
                     children: error
                 }, void 0, false, {
                     fileName: "[project]/src/components/imageUploader.tsx",
-                    lineNumber: 58,
+                    lineNumber: 61,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/imageUploader.tsx",
-            lineNumber: 49,
+            lineNumber: 52,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/imageUploader.tsx",
-        lineNumber: 48,
+        lineNumber: 51,
         columnNumber: 5
     }, this);
 }

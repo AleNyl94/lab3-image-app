@@ -56,26 +56,17 @@ Svar:
 
 ## 11. Din modul i en ny roll
 
-*Vilka förändringar gjorde du i din modul, och vad i återkopplingen från Workshop 2 påverkade dem?
-Fanns det förbättringar du avstod från, eller fick lösa på annat sätt, för att inte bryta
-bakåtkompatibiliteten för den som använder modulen?*
-
-Svar: Jag förändrade readme:n och gjorde den mer förklarande, samt gjorde en index-fil för alla export.
+Svar: Jag förändrade readme:n och gjorde den mer förklarande, samt gjorde en index-fil för alla export. Jag förändrade ingenting i modulen som den var, men såklart uppstod tankar om hur den kan förbättras när jag använde modulen i en applikation, t ex. behövde jag parera att den skalar om bildens mått men i praktiken skulle jag då behöva skapa ett canvas element för att få den att faktiskt förändra bilden. Jag gjorde om det i komponenten [ImageUploader](./board-designer/src/components/imageUploader.tsx) istället, men det hade sett mycket renare ut att faktiskt ha det färdigt i modulens funktioner.
 
 ## 12. Att använda någon annans modul
-
-*Hur var det att använda en annan students modul? Vad i dess gränssnitt och dokumentation gjorde
-den lätt eller svår att använda – och vad lärde det dig om din egen modul?*
 
 Svar: Jag hade lite svårt att tolka modulen men README:n gav ganska bra exempel och jag lärde mig en del vid färdigställningen som gjorde att jag behövde kompromissa en del med slutprodukten av appen. Har inte jobbat med svg och geometriska former förut så jag har lärt mig en hel del om det ämnet.
 
 ## 13. AI-samarbete
 
 
-Svar: Resonerade med Google Gemini om lite ansvarsfördelning och problemsökte en del i importerna av modulerna. Frågade också om att konvertera filer till url:er och att jobba med blobs. 
+Svar: Resonerade med Google Gemini om lite ansvarsfördelning och problemsökte en del i importerna av modulerna. Frågade också om att konvertera filer till url:er och att jobba med blobs, samt hur koden skulle fungera för att mappa ut hexagonerna.
 
-*Skilde sig ditt AI-samarbete när du skrev en applikation åt användare, jämfört med när du skrev
-en modul åt andra programmerare i laboration 2? Var det till exempel till mer eller mindre hjälp
-vid kravarbetet, gränssnittet, integrationen av modulerna eller förbättringen av din modul?*
 
-Svar: Ja eftersom koden var lite mer komplex så frågade jag den om lite 
+Svar: Ja eftersom koden var lite mer komplex så frågade jag den om lite mer lösningar
+på problem som uppstod eller att formatera text för att spara tid och skapa en högre kvalitet på textdokument som README:n för krav och vision (under övervakning såklart).

@@ -15,10 +15,9 @@ describe('BoardGrid', () => {
       { id: '3', type: 'sheep', imageUrl: 'blob:url-3' }
     ]
 
-    render(createElement(BoardGrid, { tiles: mockTiles }))
+    const { container } = render(createElement(BoardGrid, { tiles: mockTiles }))
 
-    const tiles = screen.getAllByTestId('hexagon-tile')
-    
+    const tiles = container.querySelectorAll('.tile-image')
     expect(tiles).toHaveLength(3)
   })
 })
