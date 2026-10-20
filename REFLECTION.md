@@ -60,24 +60,22 @@ Svar:
 Fanns det förbättringar du avstod från, eller fick lösa på annat sätt, för att inte bryta
 bakåtkompatibiliteten för den som använder modulen?*
 
-Svar:
+Svar: Jag förändrade readme:n och gjorde den mer förklarande, samt gjorde en index-fil för alla export.
 
 ## 12. Att använda någon annans modul
 
 *Hur var det att använda en annan students modul? Vad i dess gränssnitt och dokumentation gjorde
 den lätt eller svår att använda – och vad lärde det dig om din egen modul?*
 
-Svar:
+Svar: Jag hade lite svårt att tolka modulen men README:n gav ganska bra exempel och jag lärde mig en del vid färdigställningen som gjorde att jag behövde kompromissa en del med slutprodukten av appen. Har inte jobbat med svg och geometriska former förut så jag har lärt mig en hel del om det ämnet.
 
 ## 13. AI-samarbete
 
-*Beskriv kort vilka delar av inlämningen du tagit fram tillsammans med AI-assistenter (t.ex.
-ChatGPT, GitHub Copilot, Claude), och hur. Har du inte använt AI-assistenter, skriv det.*
 
-Svar:
+Svar: Resonerade med Google Gemini om lite ansvarsfördelning och problemsökte en del i importerna av modulerna. Frågade också om att konvertera filer till url:er och att jobba med blobs. 
 
 *Skilde sig ditt AI-samarbete när du skrev en applikation åt användare, jämfört med när du skrev
 en modul åt andra programmerare i laboration 2? Var det till exempel till mer eller mindre hjälp
 vid kravarbetet, gränssnittet, integrationen av modulerna eller förbättringen av din modul?*
 
-Svar:
+Svar: Ja eftersom koden var lite mer komplex så frågade jag den om lite 

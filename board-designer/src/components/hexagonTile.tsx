@@ -3,11 +3,12 @@ import React from 'react'
 import { HexagonTileProps } from '../types/hexagonprops'
 
 export function HexagonTile({ hexagon, imageSrc } : HexagonTileProps) {
+  if (!imageSrc) {
+    return null
+  }
+
   const pointsString = hexagon.points.map((p) => `${p.x}, ${p.y}`).join(' ')
-
   const clipId = `clip-${hexagon.coordinate.x}--${hexagon.coordinate.y}`
-
-  
 
   return (
     <g

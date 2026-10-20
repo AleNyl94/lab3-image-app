@@ -2254,7 +2254,8 @@ function ImageUploader({ label, onImageValid }) {
                 height: 160
             }
         });
-        const imageUrl = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$functions$2f$createImageUrl$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createImageUrl"])(formattedImage);
+        const formattedFile = await resizeImageToFile(rawImageUrl, formattedImage, file.name, file.type);
+        const imageUrl = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$functions$2f$createImageUrl$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createImageUrl"])(formattedFile);
         onImageValid(file, imageUrl, formattedImage);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2270,7 +2271,7 @@ function ImageUploader({ label, onImageValid }) {
                     className: "hidden"
                 }, void 0, false, {
                     fileName: "[project]/src/components/imageUploader.tsx",
-                    lineNumber: 50,
+                    lineNumber: 51,
                     columnNumber: 9
                 }, this),
                 error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2278,18 +2279,18 @@ function ImageUploader({ label, onImageValid }) {
                     children: error
                 }, void 0, false, {
                     fileName: "[project]/src/components/imageUploader.tsx",
-                    lineNumber: 57,
+                    lineNumber: 58,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/imageUploader.tsx",
-            lineNumber: 48,
+            lineNumber: 49,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/imageUploader.tsx",
-        lineNumber: 47,
+        lineNumber: 48,
         columnNumber: 5
     }, this);
 }

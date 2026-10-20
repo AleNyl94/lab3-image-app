@@ -104,19 +104,19 @@ p {
 }
 
 .card-modal {
-  width: 200px;
-  height: 300px;
+  width: 150px;
+  height: 320px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  background-color: #fff;
+  background-color: #ddc86f;
   display: flex;
   flex-direction: column;
 }
 
 .image-container {
-  width: 100%;
-  height: 100%;
+  width: 80px;
+  height: 80px;  
   position: relative;
   display: flex;
   flex-direction: column;

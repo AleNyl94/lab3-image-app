@@ -38,8 +38,9 @@ export function ImageUploader({ label, onImageValid }: ImageUploaderProps) {
     setError(null)
     const rawImageUrl = createImageUrl(file)
     const { width, height } = await getImageDimension(rawImageUrl)
-    const formattedImage = scaleToRatio({ height, width, aspectRatio: { width: 160, height: 160 }})
-    const imageUrl = createImageUrl(formattedImage)
+    const formattedImage = scaleToRatio({ height, width, aspectRatio: { width: 1, height: 1 }})
+    const formattedFile = await resizeImageToFile( rawImageUrl, formattedImage, file.name, file.type)
+    const imageUrl = createImageUrl(formattedFile)
     onImageValid(file, imageUrl, formattedImage)
   }
 
