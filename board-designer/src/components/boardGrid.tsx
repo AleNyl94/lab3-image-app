@@ -15,18 +15,21 @@ export function BoardGrid({ tiles }: {tiles: any[]}) {
     hexDiameter: 80,
     skeletonWidth: 3,
     skeletonHeight: 3
-  })
+  }).slice(0, 19)
 
   return (
     <div className="board">
-      <svg className="hexagon-grid">
+      <svg className="hexagon-grid" viewBox="0 0 700 600">
         {hexagons.map((hex: any, index: number) => {
           const tile = tiles[index]
+          if (!hex || !hex.points) return null
           const points = hex.points.map((p: any) => `${p.x},${p.y}`).join(' ')
           return (
             <HexagonTile
+            key={index}
             index={index}
             hexagon={hex}
+            tile={tile}
             imageSrc={tile?.imageUrl}
             />
           )

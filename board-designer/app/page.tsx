@@ -38,13 +38,13 @@ export default function Page() {
   }
 
   return(
-    <>
+    <div className="content">
       <h1>Create your own game-board!</h1>
       <div className="image-dropzones">
         {TERRAIN_TYPES.map((type) => (
           <ImageUploader
             key={type}
-            label={`Upload a image for ${type}`}
+            label={`Upload a image for resource: ${type}`}
             onImageValid={( file, imageUrl, formattedImage ) => handleUploadedImages(type, file, imageUrl, formattedImage)}
           />
         ))}
@@ -63,6 +63,6 @@ export default function Page() {
           {board && <BoardGrid tiles={board}/>}
         </div>
       </div>
-    </>
+    </div>
   )
 }

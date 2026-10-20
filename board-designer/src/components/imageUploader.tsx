@@ -38,7 +38,7 @@ export function ImageUploader({ label, onImageValid }: ImageUploaderProps) {
     setError(null)
     const imageUrl = createImageUrl(file)
     const { width, height } = await getImageDimension(imageUrl)
-    const formattedImage = scaleToRatio({ height, width, aspectRatio: { width: 100, height: 100 }})
+    const formattedImage = scaleToRatio({ height, width, aspectRatio: { width: 80, height: 80 }})
     onImageValid(file, imageUrl, formattedImage)
   }
 
@@ -46,7 +46,6 @@ export function ImageUploader({ label, onImageValid }: ImageUploaderProps) {
     <div className="border-box">
       <label className="uploadTitle">
         {label}
-        Drop your image here
         <input
           type="file"
           accept={`${fileTypes}`}

@@ -40,7 +40,8 @@ function Page() {
             setBoard(newBoard);
         }
     };
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "content",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                 children: "Create your own game-board!"
@@ -52,7 +53,7 @@ function Page() {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "image-dropzones",
                 children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$types$2f$terraintypes$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["TERRAIN_TYPES"].map((type)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$imageUploader$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ImageUploader"], {
-                        label: `Upload a image for ${type}`,
+                        label: `Upload a image for resource: ${type}`,
                         onImageValid: (file, imageUrl, formattedImage)=>handleUploadedImages(type, file, imageUrl, formattedImage)
                     }, type, false, {
                         fileName: "[project]/app/page.tsx",
@@ -1511,21 +1512,24 @@ function BoardGrid({ tiles }) {
         hexDiameter: 80,
         skeletonWidth: 3,
         skeletonHeight: 3
-    });
+    }).slice(0, 19);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "board",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
             className: "hexagon-grid",
+            viewBox: "0 0 700 600",
             children: hexagons.map((hex, index)=>{
                 const tile = tiles[index];
+                if (!hex || !hex.points) return null;
                 const points = hex.points.map((p)=>`${p.x},${p.y}`).join(' ');
                 return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$hexagonTile$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["HexagonTile"], {
                     index: index,
                     hexagon: hex,
+                    tile: tile,
                     imageSrc: tile?.imageUrl
-                }, void 0, false, {
+                }, index, false, {
                     fileName: "[project]/src/components/boardGrid.tsx",
-                    lineNumber: 27,
+                    lineNumber: 28,
                     columnNumber: 13
                 }, this);
             })
@@ -1552,7 +1556,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 'use client';
 ;
 function HexagonTile({ hexagon, imageSrc }) {
-    const pointsString = hexagon.points.map((p)=>`${p.x}, ${p.y}`).join('');
+    const pointsString = hexagon.points.map((p)=>`${p.x}, ${p.y}`).join(' ');
     const clipId = `clip-${hexagon.coordinate.x}--${hexagon.coordinate.y}`;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
         className: "hexagon-mask",
@@ -1589,7 +1593,11 @@ function HexagonTile({ hexagon, imageSrc }) {
                 href: imageSrc,
                 x: hexagon.center.x - 45,
                 y: hexagon.center.y - 45,
-                className: "tileImage"
+                width: "90",
+                height: "90",
+                clipPath: `url(#${clipId})`,
+                preserveAspectRatio: "xMidYMid slice",
+                className: "tile-image"
             }, void 0, false, {
                 fileName: "[project]/src/components/hexagonTile.tsx",
                 lineNumber: 26,
@@ -1643,8 +1651,8 @@ function ImageUploader({ label, onImageValid }) {
             height,
             width,
             aspectRatio: {
-                width: 100,
-                height: 100
+                width: 80,
+                height: 80
             }
         });
         onImageValid(file, imageUrl, formattedImage);
@@ -1655,7 +1663,6 @@ function ImageUploader({ label, onImageValid }) {
             className: "uploadTitle",
             children: [
                 label,
-                "Drop your image here",
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                     type: "file",
                     accept: `${fileTypes}`,
@@ -1663,7 +1670,7 @@ function ImageUploader({ label, onImageValid }) {
                     className: "hidden"
                 }, void 0, false, {
                     fileName: "[project]/src/components/imageUploader.tsx",
-                    lineNumber: 50,
+                    lineNumber: 49,
                     columnNumber: 9
                 }, this),
                 error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1671,7 +1678,7 @@ function ImageUploader({ label, onImageValid }) {
                     children: error
                 }, void 0, false, {
                     fileName: "[project]/src/components/imageUploader.tsx",
-                    lineNumber: 57,
+                    lineNumber: 56,
                     columnNumber: 9
                 }, this)
             ]
