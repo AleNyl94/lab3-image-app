@@ -8,14 +8,16 @@ import { CardModalProps } from '../types/cardmodalprops'
  * @param CardModalProps - Properties for the component.
  * @returns The resource-card with desired image.
  */
-export function CardModal({ imageSrc, isOpen }: CardModalProps) {
-  if (!isOpen)
+export function CardModal({ imageSrc , type }: CardModalProps & { imageSrc?: string, type?: string }) {
+
+  if(!imageSrc)
     return null
 
   return (
     <div className="card-modal">
       <div className="image-container">
-        <img src={imageSrc} alt="Terrain preview"/>
+        {type && <h3>{type} card</h3>}
+        <img src={imageSrc} />
       </div>
     </div>
   )

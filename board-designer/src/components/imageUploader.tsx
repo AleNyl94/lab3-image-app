@@ -1,8 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
-import { getImageDimension } from '../functions/getimagedimensions'
-import { createImageUrl } from '../functions/createImageUrl'
+import { getImageDimension } from './functions/getimagedimensions'
+import { createImageUrl } from './functions/createImageUrl'
 import { scaleToRatio } from 'image-processing-module'
 
 /**
@@ -36,9 +36,10 @@ export function ImageUploader({ label, onImageValid }: ImageUploaderProps) {
       return
     }
     setError(null)
-    const imageUrl = createImageUrl(file)
-    const { width, height } = await getImageDimension(imageUrl)
+    const rawImageUrl = createImageUrl(file)
+    const { width, height } = await getImageDimension(rawImageUrl)
     const formattedImage = scaleToRatio({ height, width, aspectRatio: { width: 160, height: 160 }})
+    const imageUrl = createImageUrl(formattedImage)
     onImageValid(file, imageUrl, formattedImage)
   }
 

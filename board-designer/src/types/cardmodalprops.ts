@@ -1,5 +1,6 @@
+import { TERRAIN_TYPES } from "./terraintypes"
+
 export type CardModalProps = {
-  imageSrc?: string,
-  isOpen: boolean,
-  title: string
+  imageSrc: string,
+  type: string
 }

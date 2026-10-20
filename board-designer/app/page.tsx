@@ -3,7 +3,8 @@ import { useState } from 'react'
 import { ImageUploader } from '../src/components/imageUploader'
 import { BoardGrid } from '../src/components/boardGrid'
 import { TERRAIN_TYPES } from '../src/types/terraintypes'
-import { generateBoard } from '../src/functions/generateBoard'
+import { generateBoard } from '../src/components/functions/generateBoard'
+import { CardDisplay } from '../src/components/cardDisplay'
 
 type UploadedImage = {
   file: File
@@ -37,14 +38,20 @@ export default function Page() {
     }
   }
 
+  const cardsData = TERRAIN_TYPES.map((type) => ({
+    type: type,
+    imageUrl: uploadedImages[type]?.imageUrl
+  })) 
+
   return(
     <div className="content">
       <h1>Create your own game-board!</h1>
+      <p>(remember that higher quality pictures make higher quality tiles..)</p>
       <div className="image-dropzones">
         {TERRAIN_TYPES.map((type) => (
           <ImageUploader
             key={type}
-            label={`Upload a image for resource: ${type}`}
+            label={`Upload an image for resource: ${type}`}
             onImageValid={( file, imageUrl, formattedImage ) => handleUploadedImages(type, file, imageUrl, formattedImage)}
           />
         ))}
@@ -61,6 +68,9 @@ export default function Page() {
         </button>
       </div>
       {board && <BoardGrid tiles={board}/>}
+        <div className="cards">
+          <CardDisplay cards={cardsData}/>
+        </div>
     </div>
   )
 }

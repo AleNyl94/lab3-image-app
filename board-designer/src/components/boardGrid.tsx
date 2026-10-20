@@ -3,6 +3,7 @@
 import React from 'react'
 import { HexGrid } from "midgard-hex-grid"
 import { HexagonTile } from "./hexagonTile"
+import { formatCatanBoard } from './functions/formatCatanBoard'
 
 /**
  * The grid with hexagons that will display the tiles.
@@ -11,42 +12,14 @@ import { HexagonTile } from "./hexagonTile"
  */
 export function BoardGrid({ tiles }: {tiles: any[]}) {
   const grid = new HexGrid('x-dominated')
-  const hexagons = grid.createGrid({
+  const rawHexagons = grid.createGrid({
     hexDiameter: 120,
     skeletonWidth: 3,
     skeletonHeight: 3
   })
 
-  const rowsMap = new Map<number, any[]>()
-  rawHexagons.forEach((hex: any) => {
-    const y = hex.coordinate.y
-    if (!rowsMap.has(y)) {
-      rowsMap.set(y, [])
-    }
-    rowsMap.get(y)!.push(hex)
-  })
+  const formattedHexagons = formatCatanBoard(rawHexagons)
 
-  for (const [y, hexs] of rowsMap.entries()) {
-    hexs.sort((a, b) => a.coordinate.x - b.coordinate.x)
-  }
-
-  const sortedRows = Array.from(rowsMap.entries())
-    .sort(([yA], [yB]) => yA - yB)
-    .map(([_, hexs]) => hexs)
-
-  const targetPattern = [3, 4, 5, 4, 3]
-  let catanRows: any[][] = []
-
-  for (let i = 0; i <= sortedRows.length - targetPattern.length; i++) {
-    const slice = sortedRows.slice(i, i + targetPattern.length)
-    const matches = slice.every((row, idx) => row.length === targetPattern[idx])
-    if (matches) {
-      catanRows = slice
-      break
-    }
-  }
-
-  const formattedHexagons = catanRows.length > 0 ? catanRows.flat() : rawHexagons.slice(0, 19)
 
   return (
     <div className="board">
@@ -60,7 +33,6 @@ export function BoardGrid({ tiles }: {tiles: any[]}) {
             key={index}
             index={index}
             hexagon={hex}
-            tile={tile}
             imageSrc={tile?.imageUrl}
             />
           )
