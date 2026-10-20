@@ -38,14 +38,16 @@ h1 {
 
 .hexagon-grid {
   width: 100%;
+  padding: 30px;
   height: auto;
-  max-width: 600px;
+  max-width: 800px;
   display: block;
   margin: 0 auto;
 }
 
 .tile {
   fill: none;
+  max-width: 160px;
   stroke: #334155;
   stroke-width: 2px;
   pointer-events: none;
@@ -88,16 +90,8 @@ h1 {
   cursor: not-allowed;
   box-shadow: none;
 }
-
-.game-board-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 0.75rem;
-  min-height: 400px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+.board {
+  height: auto;
+  max-width: 700px;
+  margin: 0 auto;
 }

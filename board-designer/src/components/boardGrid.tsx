@@ -12,14 +12,15 @@ import { HexagonTile } from "./hexagonTile"
 export function BoardGrid({ tiles }: {tiles: any[]}) {
   const grid = new HexGrid('x-dominated')
   const hexagons = grid.createGrid({
-    hexDiameter: 80,
+    hexDiameter: 120,
     skeletonWidth: 3,
-    skeletonHeight: 3
+    skeletonHeight: 3,
+    fillAround: true
   }).slice(0, 19)
 
   return (
     <div className="board">
-      <svg className="hexagon-grid" viewBox="0 0 700 600">
+      <svg className="hexagon-grid" viewBox="-100 -10 700 600">
         {hexagons.map((hex: any, index: number) => {
           const tile = tiles[index]
           if (!hex || !hex.points) return null

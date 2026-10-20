@@ -59,10 +59,8 @@ export default function Page() {
           ? 'Generate board'
           : `Upload images (${Object.keys(uploadedImages).length}/6)`}
         </button>
-        <div className="game-board-container">
-          {board && <BoardGrid tiles={board}/>}
-        </div>
       </div>
+      {board && <BoardGrid tiles={board}/>}
     </div>
   )
 }

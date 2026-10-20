@@ -38,7 +38,7 @@ export function ImageUploader({ label, onImageValid }: ImageUploaderProps) {
     setError(null)
     const imageUrl = createImageUrl(file)
     const { width, height } = await getImageDimension(imageUrl)
-    const formattedImage = scaleToRatio({ height, width, aspectRatio: { width: 80, height: 80 }})
+    const formattedImage = scaleToRatio({ height, width, aspectRatio: { width: 160, height: 160 }})
     onImageValid(file, imageUrl, formattedImage)
   }
 

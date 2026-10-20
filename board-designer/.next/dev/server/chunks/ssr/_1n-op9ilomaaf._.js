@@ -67,36 +67,27 @@ function Page() {
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "generate-button-zone",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        onClick: handleGenerateBoard,
-                        disabled: !isImagesFull,
-                        className: "generate-button",
-                        children: isImagesFull ? 'Generate board' : `Upload images (${Object.keys(uploadedImages).length}/6)`
-                    }, void 0, false, {
-                        fileName: "[project]/app/page.tsx",
-                        lineNumber: 53,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "game-board-container",
-                        children: board && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$boardGrid$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["BoardGrid"], {
-                            tiles: board
-                        }, void 0, false, {
-                            fileName: "[project]/app/page.tsx",
-                            lineNumber: 63,
-                            columnNumber: 21
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "[project]/app/page.tsx",
-                        lineNumber: 62,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                    onClick: handleGenerateBoard,
+                    disabled: !isImagesFull,
+                    className: "generate-button",
+                    children: isImagesFull ? 'Generate board' : `Upload images (${Object.keys(uploadedImages).length}/6)`
+                }, void 0, false, {
+                    fileName: "[project]/app/page.tsx",
+                    lineNumber: 53,
+                    columnNumber: 9
+                }, this)
+            }, void 0, false, {
                 fileName: "[project]/app/page.tsx",
                 lineNumber: 52,
                 columnNumber: 7
+            }, this),
+            board && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$boardGrid$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["BoardGrid"], {
+                tiles: board
+            }, void 0, false, {
+                fileName: "[project]/app/page.tsx",
+                lineNumber: 63,
+                columnNumber: 17
             }, this)
         ]
     }, void 0, true, {
@@ -1509,15 +1500,16 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$hexagon
 function BoardGrid({ tiles }) {
     const grid = new __TURBOPACK__imported__module__$5b$project$5d2f$midgard$2f$dist$2f$hex$2d$grid$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["HexGrid"]('x-dominated');
     const hexagons = grid.createGrid({
-        hexDiameter: 80,
+        hexDiameter: 120,
         skeletonWidth: 3,
-        skeletonHeight: 3
+        skeletonHeight: 3,
+        fillAround: true
     }).slice(0, 19);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "board",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
             className: "hexagon-grid",
-            viewBox: "0 0 700 600",
+            viewBox: "-100 -10 700 600",
             children: hexagons.map((hex, index)=>{
                 const tile = tiles[index];
                 if (!hex || !hex.points) return null;
@@ -1529,18 +1521,18 @@ function BoardGrid({ tiles }) {
                     imageSrc: tile?.imageUrl
                 }, index, false, {
                     fileName: "[project]/src/components/boardGrid.tsx",
-                    lineNumber: 28,
+                    lineNumber: 29,
                     columnNumber: 13
                 }, this);
             })
         }, void 0, false, {
             fileName: "[project]/src/components/boardGrid.tsx",
-            lineNumber: 22,
+            lineNumber: 23,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/boardGrid.tsx",
-        lineNumber: 21,
+        lineNumber: 22,
         columnNumber: 5
     }, this);
 }
@@ -1591,10 +1583,10 @@ function HexagonTile({ hexagon, imageSrc }) {
             }, this),
             imageSrc && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("image", {
                 href: imageSrc,
-                x: hexagon.center.x - 45,
-                y: hexagon.center.y - 45,
-                width: "90",
-                height: "90",
+                x: hexagon.center.x - 80,
+                y: hexagon.center.y - 80,
+                width: "160",
+                height: "160",
                 clipPath: `url(#${clipId})`,
                 preserveAspectRatio: "xMidYMid slice",
                 className: "tile-image"
@@ -1651,8 +1643,8 @@ function ImageUploader({ label, onImageValid }) {
             height,
             width,
             aspectRatio: {
-                width: 80,
-                height: 80
+                width: 160,
+                height: 160
             }
         });
         onImageValid(file, imageUrl, formattedImage);

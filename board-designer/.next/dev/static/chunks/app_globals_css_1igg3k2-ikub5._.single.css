@@ -38,9 +38,10 @@ h1 {
 
 .hexagon-grid {
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
   height: auto;
   margin: 0 auto;
+  padding: 30px;
   display: block;
 }
 
@@ -49,6 +50,7 @@ h1 {
   stroke: #334155;
   stroke-width: 2px;
   pointer-events: none;
+  max-width: 160px;
 }
 
 .tile-image {
@@ -89,17 +91,10 @@ h1 {
   background-color: #e2e8f0;
 }
 
-.game-board-container {
-  background-color: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: .75rem;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 400px;
-  padding: 2rem;
-  display: flex;
-  box-shadow: 0 1px 2px #0000000d;
+.board {
+  max-width: 700px;
+  height: auto;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=app_globals_css_1igg3k2-ikub5._.single.css.map*/

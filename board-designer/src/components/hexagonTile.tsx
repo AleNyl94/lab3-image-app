@@ -25,10 +25,10 @@ export function HexagonTile({ hexagon, imageSrc } : HexagonTileProps) {
         {imageSrc && (
           <image
             href={imageSrc}
-            x={hexagon.center.x - 45}
-            y={hexagon.center.y - 45}
-            width="90"
-            height="90"
+            x={hexagon.center.x - 80}
+            y={hexagon.center.y - 80}
+            width="160"
+            height="160"
             clipPath={`url(#${clipId})`}
             preserveAspectRatio="xMidYMid slice"
             className="tile-image"
