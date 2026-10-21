@@ -1,5 +1,5 @@
 'use client'
-import { HexGrid } from "midgard-hex-grid"
+import { HexGrid } from "../../midgard"
 import { HexagonTile } from "./hexagonTile"
 
 /**
