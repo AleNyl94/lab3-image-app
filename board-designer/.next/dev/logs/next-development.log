@@ -23,3 +23,48 @@
 {"timestamp":"08:45:51.561","source":"Server","level":"LOG","message":"✓ Compiled in 45ms"}
 {"timestamp":"08:47:13.436","source":"Browser","level":"LOG","message":"Generera-knappen trycktes!"}
 {"timestamp":"08:53:25.285","source":"Server","level":"LOG","message":"✓ Compiled in 69ms"}
+{"timestamp":"09:10:39.124","source":"Server","level":"LOG","message":"✓ Compiled in 109ms"}
+{"timestamp":"09:10:43.148","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"09:11:37.003","source":"Server","level":"LOG","message":"✓ Compiled in 41ms"}
+{"timestamp":"09:11:59.937","source":"Server","level":"LOG","message":"✓ Compiled in 52ms"}
+{"timestamp":"09:13:02.477","source":"Server","level":"LOG","message":"✓ Compiled in 67ms"}
+{"timestamp":"09:13:55.380","source":"Server","level":"LOG","message":"✓ Compiled in 67ms"}
+{"timestamp":"09:14:46.997","source":"Server","level":"LOG","message":"✓ Compiled in 63ms"}
+{"timestamp":"09:15:08.822","source":"Server","level":"LOG","message":"✓ Compiled in 27ms"}
+{"timestamp":"09:15:47.091","source":"Server","level":"LOG","message":"✓ Compiled in 52ms"}
+{"timestamp":"09:16:38.979","source":"Server","level":"LOG","message":"✓ Compiled in 72ms"}
+{"timestamp":"09:16:57.330","source":"Server","level":"LOG","message":"✓ Compiled in 53ms"}
+{"timestamp":"09:17:03.293","source":"Server","level":"LOG","message":"✓ Compiled in 195ms"}
+{"timestamp":"09:17:15.251","source":"Server","level":"LOG","message":"✓ Compiled in 60ms"}
+{"timestamp":"09:17:22.057","source":"Server","level":"LOG","message":"✓ Compiled in 84ms"}
+{"timestamp":"09:17:39.405","source":"Server","level":"LOG","message":"✓ Compiled in 34ms"}
+{"timestamp":"09:18:40.333","source":"Server","level":"LOG","message":"✓ Compiled in 50ms"}
+{"timestamp":"09:18:54.917","source":"Server","level":"LOG","message":"✓ Compiled in 73ms"}
+{"timestamp":"09:19:11.128","source":"Server","level":"LOG","message":"✓ Compiled in 55ms"}
+{"timestamp":"09:19:17.805","source":"Server","level":"LOG","message":"✓ Compiled in 41ms"}
+{"timestamp":"09:19:34.943","source":"Server","level":"LOG","message":"✓ Compiled in 57ms"}
+{"timestamp":"09:19:41.105","source":"Server","level":"LOG","message":"✓ Compiled in 53ms"}
+{"timestamp":"09:19:42.586","source":"Server","level":"LOG","message":"✓ Compiled in 48ms"}
+{"timestamp":"09:19:53.605","source":"Server","level":"LOG","message":"✓ Compiled in 60ms"}
+{"timestamp":"09:20:01.897","source":"Server","level":"LOG","message":"✓ Compiled in 58ms"}
+{"timestamp":"09:25:14.139","source":"Server","level":"LOG","message":"✓ Compiled in 64ms"}
+{"timestamp":"09:25:29.394","source":"Server","level":"LOG","message":"✓ Compiled in 50ms"}
+{"timestamp":"09:25:51.139","source":"Server","level":"LOG","message":"✓ Compiled in 72ms"}
+{"timestamp":"09:25:59.098","source":"Server","level":"LOG","message":"✓ Compiled in 68ms"}
+{"timestamp":"09:26:07.058","source":"Server","level":"LOG","message":"✓ Compiled in 52ms"}
+{"timestamp":"09:26:11.026","source":"Server","level":"LOG","message":"✓ Compiled in 55ms"}
+{"timestamp":"09:26:27.794","source":"Server","level":"LOG","message":"✓ Compiled in 56ms"}
+{"timestamp":"09:26:40.890","source":"Server","level":"LOG","message":"✓ Compiled in 52ms"}
+{"timestamp":"09:26:45.693","source":"Server","level":"LOG","message":"✓ Compiled in 43ms"}
+{"timestamp":"09:26:58.360","source":"Server","level":"LOG","message":"✓ Compiled in 46ms"}
+{"timestamp":"09:27:02.630","source":"Server","level":"LOG","message":"✓ Compiled in 46ms"}
+{"timestamp":"09:27:06.244","source":"Server","level":"LOG","message":"✓ Compiled in 48ms"}
+{"timestamp":"09:27:53.595","source":"Server","level":"LOG","message":"✓ Compiled in 63ms"}
+{"timestamp":"09:28:40.389","source":"Server","level":"LOG","message":"✓ Compiled in 209ms"}
+{"timestamp":"09:29:00.423","source":"Server","level":"LOG","message":"✓ Compiled in 115ms"}
+{"timestamp":"09:34:39.088","source":"Server","level":"LOG","message":"✓ Compiled in 132ms"}
+{"timestamp":"09:35:31.347","source":"Browser","level":"LOG","message":"Generera-knappen trycktes!"}
+{"timestamp":"09:43:35.091","source":"Server","level":"ERROR","message":"⨯ ./src/components/boardGrid.tsx:4:1\nError: Module not found: Can't resolve './functions/formatCatanBoard'\n  2 | import { HexGrid } from \"midgard-hex-grid\"\n  3 | import { HexagonTile } from \"./hexagonTile\"\n> 4 | import { formatCatanBoard } from './functions/formatCatanBoard'\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  5 |\n  6 | /**\n  7 |  * The grid with hexagons that will display the tiles.\n\n\n\nImport traces:\n  Client Component Browser:\n    ./src/components/boardGrid.tsx [Client Component Browser]\n    ./app/page.tsx [Client Component Browser]\n    ./app/page.tsx [Server Component]\n\n  Client Component SSR:\n    ./src/components/boardGrid.tsx [Client Component SSR]\n    ./app/page.tsx [Client Component SSR]\n    ./app/page.tsx [Server Component]\n\nhttps://nextjs.org/docs/messages/module-not-found\n\n"}
+{"timestamp":"09:43:35.092","source":"Server","level":"ERROR","message":"⨯ ./src/components/boardGrid.tsx:4:1\nError: Module not found: Can't resolve './functions/formatCatanBoard'\n  2 | import { HexGrid } from \"midgard-hex-grid\"\n  3 | import { HexagonTile } from \"./hexagonTile\"\n> 4 | import { formatCatanBoard } from './functions/formatCatanBoard'\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  5 |\n  6 | /**\n  7 |  * The grid with hexagons that will display the tiles.\n\n\n\nImport traces:\n  Client Component Browser:\n    ./src/components/boardGrid.tsx [Client Component Browser]\n    ./app/page.tsx [Client Component Browser]\n    ./app/page.tsx [Server Component]\n\n  Client Component SSR:\n    ./src/components/boardGrid.tsx [Client Component SSR]\n    ./app/page.tsx [Client Component SSR]\n    ./app/page.tsx [Server Component]\n\nhttps://nextjs.org/docs/messages/module-not-found\n\n"}
+{"timestamp":"09:43:35.094","source":"Server","level":"ERROR","message":"⨯ ./src/components/boardGrid.tsx:4:1\nError: Module not found: Can't resolve './functions/formatCatanBoard'\n  2 | import { HexGrid } from \"midgard-hex-grid\"\n  3 | import { HexagonTile } from \"./hexagonTile\"\n> 4 | import { formatCatanBoard } from './functions/formatCatanBoard'\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  5 |\n  6 | /**\n  7 |  * The grid with hexagons that will display the tiles.\n\n\n\nImport traces:\n  Client Component Browser:\n    ./src/components/boardGrid.tsx [Client Component Browser]\n    ./app/page.tsx [Client Component Browser]\n    ./app/page.tsx [Server Component]\n\n  Client Component SSR:\n    ./src/components/boardGrid.tsx [Client Component SSR]\n    ./app/page.tsx [Client Component SSR]\n    ./app/page.tsx [Server Component]\n\nhttps://nextjs.org/docs/messages/module-not-found\n\n"}
+{"timestamp":"09:43:35.095","source":"Server","level":"ERROR","message":"⨯ ./src/components/boardGrid.tsx:4:1\nError: Module not found: Can't resolve './functions/formatCatanBoard'\n  2 | import { HexGrid } from \"midgard-hex-grid\"\n  3 | import { HexagonTile } from \"./hexagonTile\"\n> 4 | import { formatCatanBoard } from './functions/formatCatanBoard'\n    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  5 |\n  6 | /**\n  7 |  * The grid with hexagons that will display the tiles.\n\n\n\nImport traces:\n  Client Component Browser:\n    ./src/components/boardGrid.tsx [Client Component Browser]\n    ./app/page.tsx [Client Component Browser]\n    ./app/page.tsx [Server Component]\n\n  Client Component SSR:\n    ./src/components/boardGrid.tsx [Client Component SSR]\n    ./app/page.tsx [Client Component SSR]\n    ./app/page.tsx [Server Component]\n\nhttps://nextjs.org/docs/messages/module-not-found\n\n"}

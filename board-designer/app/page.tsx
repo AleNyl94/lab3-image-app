@@ -67,10 +67,12 @@ export default function Page() {
           : `Upload images (${Object.keys(uploadedImages).length}/6)`}
         </button>
       </div>
-      {board && <BoardGrid tiles={board}/>}
-        <div className="cards">
+      {board && (
+        <>
+          <BoardGrid tiles={board}/>
           <CardDisplay cards={cardsData}/>
-        </div>
+        </>
+      )}
     </div>
   )
 }

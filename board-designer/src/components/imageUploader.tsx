@@ -11,8 +11,7 @@ import { resizeImageToFile } from './functions/resizeImageToFile'
  * A file upload component that restricts input to allowed image formats
  * and handles basic client-side validation errors.
  *
- * @param props - Component properties.
- * @param props.onImageValid - Callback triggered with the validated file.
+ * @param ImageUploaderProps - Component properties.
  * @returns A JSX element containing the file input and error message display.
  */
 export function ImageUploader({ label, onImageValid }: ImageUploaderProps) {

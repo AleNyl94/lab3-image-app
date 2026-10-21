@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Catan Board Generator',
-  description: 'Generera dina Catan-kartor enkelt och smidigt',
+  description: 'Generate custom catan-boards & resource-cards',
 }
 
 export default function RootLayout({
@@ -29,7 +29,7 @@ export default function RootLayout({
         </main>
 
         <footer className="border-t border-slate-200 bg-white py-4 text-center text-xs text-slate-500">
-          Catan Board Generator &bull; Deadline onsdag!
+          Laboration 3 for 1DV610 // an225ee
         </footer>
       </body>
     </html>
