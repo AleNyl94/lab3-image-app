@@ -3,6 +3,9 @@ import { describe, it, expect } from 'vitest'
 import { createElement } from 'react'
 import { CardDisplay } from '../src/components/cardDisplay'
 
+/**
+ * Test for the CardDisplay-component.
+ */
 describe('CardDisplay', () => {
   it('R7 renders a list of cards correctly', () => {
     const mockCards = [

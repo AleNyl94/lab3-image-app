@@ -3,6 +3,9 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import { HexagonTile } from '../src/components/hexagonTile' 
 
+/**
+ * Test for the HexagonTile-component.
+ */
 describe('HexagonTile', () => {
   it('R6 renders correctly with given image', () => {
     const mockHexagon = {

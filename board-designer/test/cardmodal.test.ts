@@ -3,6 +3,9 @@ import { describe, it, expect } from 'vitest'
 import { createElement } from 'react'
 import { CardModal } from '../src/components/cardModal'
 
+/**
+ * Test for the CardModal-component.
+ */
 describe('CarddModal', () => {
   it('should return null with an empty image', () => {
     const { container } = render(

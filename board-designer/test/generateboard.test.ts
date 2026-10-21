@@ -1,7 +1,9 @@
-
 import { describe, it, expect } from 'vitest'
 import { generateBoard } from '../src/components/functions/generateBoard'
 
+/**
+ * Test for the generateBoard-function.
+ */
 describe('generateBoard', () => {
   it('R2 should generate 19 tiles with correct properties', () => {
 

@@ -3,6 +3,9 @@ import { describe, it, expect, vi } from 'vitest'
 import { ImageUploader } from '../src/components/imageUploader'
 import { createElement } from 'react'
 
+/**
+ * Test for the ImageUploader-component.
+ */
 describe('ImageUploader', () => {
   it('R1 validates an image when uploaded, thus letting the user choose the image uploaded', async () => {
     const { container } = render(createElement(ImageUploader, { label: 'Upload an image', onImageValid: () => {} }))
