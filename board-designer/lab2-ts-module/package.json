@@ -1,0 +1,32 @@
+{
+  "name": "laboration-2",
+  "version": "1.0.0",
+  "description": "Det här är ditt privata GitLab-repo för kursens andra laborationsuppgift.",
+  "main": "index.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "docs": "typedoc --entryPointStrategy expand --entryPoints src",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AleNyl94/lab2-ts-module.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AleNyl94/lab2-ts-module/issues"
+  },
+  "homepage": "https://github.com/AleNyl94/lab2-ts-module#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.71.0",
+    "@typescript-eslint/parser": "^8.71.0",
+    "eslint": "^10.11.0",
+    "typedoc": "^0.28.20",
+    "vitest": "^5.0.1"
+  }
+}

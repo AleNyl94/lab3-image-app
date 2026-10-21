@@ -1,0 +1,23 @@
+{
+  "name": "midgard-hex-grid",
+  "version": "1.0.0",
+  "description": "A reusable TypeScript module for working with hexagonal grids.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "check": "tsc --noEmit"
+  },
+  "keywords": [
+    "hex",
+    "hex-grid",
+    "typescript"
+  ],
+  "author": "Niklas Herrloff",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
+  }
+}
