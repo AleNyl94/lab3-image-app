@@ -55,7 +55,7 @@ The application is built from separate projects. Neither module depends on the a
 
 ## Testing
 
-All requirements are verified through test cases documented in [TEST_REPORT.md](./TEST_REPORT.md), with at least one test case per requirement.
+All requirements that can be tested thrugh unit tests are verified through test cases documented in [TEST_REPORT.md](./TEST_REPORT.md).
 
 ## Disclaimer
 

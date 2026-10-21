@@ -1,4 +1,3 @@
-import { HexagonTile } from "../hexagonTile";
 /**
  * Suffles the tiles for the board.
  * 

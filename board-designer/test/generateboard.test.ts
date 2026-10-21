@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest'
 import { generateBoard } from '../src/components/functions/generateBoard'
 
 describe('generateBoard', () => {
-  it('should generate 19 tiles with correct properties', () => {
+  it('R2 should generate 19 tiles with correct properties', () => {
 
     const mockImages = {
       forest: { file: {} as File, imageUrl: 'forest.png', formattedImage: null },

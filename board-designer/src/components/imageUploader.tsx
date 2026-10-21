@@ -1,17 +1,11 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { getImageDimension } from './functions/getimagedimensions'
 import { createImageUrl } from './functions/createImageUrl'
 import { scaleToRatio } from 'image-processing-module'
-
-/**
- * Properties for the imageUploader component.
- */
-interface ImageUploaderProps {
-  label: string,
-  onImageValid: (file: File, imageUrl: string, formattedImage: any) => void;
-}
+import { ImageUploaderProps } from '../types/imageuploaderprops'
+import { resizeImageToFile } from './functions/resizeImageToFile'
 
 /**
  * A file upload component that restricts input to allowed image formats
@@ -21,8 +15,9 @@ interface ImageUploaderProps {
  * @param props.onImageValid - Callback triggered with the validated file.
  * @returns A JSX element containing the file input and error message display.
  */
-export function ImageUploader({ label, onImageValid, existingImageNames = [] }: ImageUploaderProps) {
+export function ImageUploader({ label, onImageValid }: ImageUploaderProps) {
   const [ error, setError ] = useState<string | null>(null)
+  const uploadedFiles = useRef<string[]>([])
   const fileTypes = ['image/jpeg', 'image/png', 'image/webp']
   
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,10 +29,12 @@ export function ImageUploader({ label, onImageValid, existingImageNames = [] }: 
       return
     }
 
-    if (existingImageNames.include(file.name)) {
+    if (uploadedFiles.current.includes(file.name)) {
       setError('This file has already been uploaded')
+      return
     }
-
+    
+    uploadedFiles.current.push(file.name)
     setError(null)
     const rawImageUrl = createImageUrl(file)
     const { width, height } = await getImageDimension(rawImageUrl)

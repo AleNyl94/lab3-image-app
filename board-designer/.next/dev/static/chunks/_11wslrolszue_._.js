@@ -2231,9 +2231,10 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-function ImageUploader({ label, onImageValid, existingImageNames = [] }) {
+function ImageUploader({ label, onImageValid }) {
     _s();
     const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [uploadedFileNames, setUploadedFileNames] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const fileTypes = [
         'image/jpeg',
         'image/png',
@@ -2246,7 +2247,7 @@ function ImageUploader({ label, onImageValid, existingImageNames = [] }) {
             setError('Invalid format, please use JPEG, PNG or WebP');
             return;
         }
-        if (existingImageNames.include(file.name)) {
+        if (uploadedFileNames.includes(file.name)) {
             setError('This file has already been uploaded');
         }
         setError(null);
@@ -2277,7 +2278,7 @@ function ImageUploader({ label, onImageValid, existingImageNames = [] }) {
                     className: "hidden"
                 }, void 0, false, {
                     fileName: "[project]/src/components/imageUploader.tsx",
-                    lineNumber: 54,
+                    lineNumber: 48,
                     columnNumber: 9
                 }, this),
                 error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2285,22 +2286,22 @@ function ImageUploader({ label, onImageValid, existingImageNames = [] }) {
                     children: error
                 }, void 0, false, {
                     fileName: "[project]/src/components/imageUploader.tsx",
-                    lineNumber: 61,
+                    lineNumber: 55,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/imageUploader.tsx",
-            lineNumber: 52,
+            lineNumber: 46,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/imageUploader.tsx",
-        lineNumber: 51,
+        lineNumber: 45,
         columnNumber: 5
     }, this);
 }
-_s(ImageUploader, "39SUJx0P4eHjijJR4Qf4sC3cll8=");
+_s(ImageUploader, "7NeqKkTNWpvnfHk61LY3uU4oKaw=");
 _c = ImageUploader;
 var _c;
 __turbopack_context__.k.register(_c, "ImageUploader");

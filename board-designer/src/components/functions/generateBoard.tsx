@@ -1,5 +1,4 @@
 import { shuffleTiles } from "./shuffleTiles"
-import { HexagonTile } from "../hexagonTile"
 
 /**
  * The images porperties.

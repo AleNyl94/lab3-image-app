@@ -1,4 +1,14 @@
-async function resizeImageToFile(originalSrc: string, dimensions: { width: number; height: number }, fileName: string, fileType: string): Promise<File> {
+/**
+ * Creates a file from an image.
+ * 
+ * @param originalSrc The image source link.
+ * @param dimensions The images dimensions.
+ * @param fileName The name of the file.
+ * @param fileType The file's type.
+ * @returns The image as an image.
+ */
+export async function resizeImageToFile(originalSrc: string, dimensions: 
+  { width: number; height: number }, fileName: string, fileType: string): Promise<File> {
   return new Promise((resolve, reject) => {
     const img = new Image()
     img.onload = () => {

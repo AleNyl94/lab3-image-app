@@ -1874,8 +1874,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$lab2$2d$ts$2d$module$2f$src$
 ;
 ;
 ;
-function ImageUploader({ label, onImageValid, existingImageNames = [] }) {
+function ImageUploader({ label, onImageValid }) {
     const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [uploadedFileNames, setUploadedFileNames] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const fileTypes = [
         'image/jpeg',
         'image/png',
@@ -1888,7 +1889,7 @@ function ImageUploader({ label, onImageValid, existingImageNames = [] }) {
             setError('Invalid format, please use JPEG, PNG or WebP');
             return;
         }
-        if (existingImageNames.include(file.name)) {
+        if (uploadedFileNames.includes(file.name)) {
             setError('This file has already been uploaded');
         }
         setError(null);
@@ -1919,7 +1920,7 @@ function ImageUploader({ label, onImageValid, existingImageNames = [] }) {
                     className: "hidden"
                 }, void 0, false, {
                     fileName: "[project]/src/components/imageUploader.tsx",
-                    lineNumber: 54,
+                    lineNumber: 48,
                     columnNumber: 9
                 }, this),
                 error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1927,18 +1928,18 @@ function ImageUploader({ label, onImageValid, existingImageNames = [] }) {
                     children: error
                 }, void 0, false, {
                     fileName: "[project]/src/components/imageUploader.tsx",
-                    lineNumber: 61,
+                    lineNumber: 55,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/imageUploader.tsx",
-            lineNumber: 52,
+            lineNumber: 46,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/imageUploader.tsx",
-        lineNumber: 51,
+        lineNumber: 45,
         columnNumber: 5
     }, this);
 }

@@ -1,7 +1,11 @@
 'use client'
-import React from 'react'
 import { HexagonTileProps } from '../types/hexagonprops'
 
+/**
+ * Tile in the board, containing the user's image.
+ * @param HexagonTileProps - The components properties.
+ * @returns A tile with the image.
+ */
 export function HexagonTile({ hexagon, imageSrc } : HexagonTileProps) {
   if (!imageSrc) {
     return null

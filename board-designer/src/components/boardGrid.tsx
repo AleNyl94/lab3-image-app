@@ -1,6 +1,4 @@
 'use client'
-
-import React from 'react'
 import { HexGrid } from "midgard-hex-grid"
 import { HexagonTile } from "./hexagonTile"
 import { formatCatanBoard } from './functions/formatCatanBoard'
