@@ -1,7 +1,7 @@
-import { getImageDimension } from '../components/functions/getimagedimensions'
-import { createImageUrl } from '../components/functions/createImageUrl'
+import { getImageDimension } from './functions/getimagedimensions.js'
+import { createImageUrl } from './functions/createImageUrl.js'
 import { scaleToRatio } from 'image-processing-module'
-import { resizeImageToFile } from '../components/functions/resizeImageToFile'
+import { resizeImageToFile } from './functions/resizeImageToFile.js'
 
 export class ImageHandler {
   private uploadedFiles: string[] = []

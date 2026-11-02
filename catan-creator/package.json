@@ -8,6 +8,10 @@
     "start": "tsx src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "image-processing-module": "file:./lab2-ts-module",
+     "midgard-hex-grid": "file:./midgard"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AleNyl94/lab3-image-app.git"

@@ -37,4 +37,11 @@ export class ImageUploadService {
       throw new Error('This file has already been uploaded')
     }
   }
+
+  private getBytesPerPixel(mimeType: string): number {
+    if (mimeType === 'image/jpeg') {
+      return 3
+    }
+    return 4
+  }
 }
