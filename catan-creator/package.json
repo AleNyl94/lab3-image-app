@@ -1,0 +1,27 @@
+{
+  "name": "laboration-3",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "OOP-version of the lab 3-app, the catan-board creator",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AleNyl94/lab3-image-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AleNyl94/lab3-image-app/issues"
+  },
+  "homepage": "https://github.com/AleNyl94/lab3-image-app#readme",
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}
