@@ -1,5 +1,3 @@
-import { shuffleTiles } from "./shuffleTiles"
-
 /**
  * The images porperties.
  */
@@ -16,7 +14,7 @@ type UploadedImage = {
  * @param boardPositions The positions on the Catan-board.
  * @returns 
  */
-export function generateBoard(uploadedImages: Record<string, UploadedImage>) {
+export class generateBoard(uploadedImages: Record<string, UploadedImage>) {
  
 
   const tileTemplates = [ 'forest', 'forest', 'forest', 'forest', 'pasture', 'pasture', 'pasture', 'pasture', 
@@ -30,9 +28,19 @@ export function generateBoard(uploadedImages: Record<string, UploadedImage>) {
     boardTiles.push({ id: i, type: type, imageUrl: imageUrl })
   }
 
-  const shuffledBoardTiles = shuffleTiles(boardTiles)
+  const shuffledBoardTiles = this.shuffleTiles(boardTiles)
 
   return (
     shuffledBoardTiles
   )
+}
+private shuffleTiles<T>(array: T[]): T[] {
+  const shuffledBoardTiles = [...array]
+  for (let i = shuffledBoardTiles.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const tile = shuffledBoardTiles[i];
+    shuffledBoardTiles[i] = shuffledBoardTiles[j];
+    shuffledBoardTiles[j] = tile;
+  }
+  return shuffledBoardTiles
 }

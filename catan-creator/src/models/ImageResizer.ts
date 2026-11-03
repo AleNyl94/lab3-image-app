@@ -1,10 +1,11 @@
-import { ImageItem } from 'image-processing-module'
-import { scaleToRatio } from 'image-processing-module'
+import type { ImageItem } from 'image-processing-module'
+import { ScaleToRatio } from 'image-processing-module'
 
 export type ProcessedImage = {
   imageUrl: string,
   width: number,
    height: number 
+
   }
 
 
@@ -15,13 +16,13 @@ export class ImageResizer {
     const rawImageUrl = this.createImageUrl(file)
     const { width, height } = await this.getImageDimension(rawImageUrl)
 
-    const imageItem = new ImageItem({
+    const imageItem : ImageItem = {
       width,
       height,
-      aspectRatio: this.targetAspectRatio
-    })
+      bytesPerPixel: this.getBytesPerPixel(file.type)
+    }
 
-    const scaledDimensions = scaleToRatio(imageItem)
+    const scaledDimensions = new ScaleToRatio(imageItem, this.targetAspectRatio).run()
 
     const resizedFile = await this.resizeImageToFile(
       rawImageUrl,

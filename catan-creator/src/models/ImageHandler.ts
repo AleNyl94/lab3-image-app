@@ -1,13 +1,15 @@
-import { getImageDimension } from './functions/getimagedimensions.js'
-import { createImageUrl } from './functions/createImageUrl.js'
-import { scaleToRatio } from 'image-processing-module'
-import { resizeImageToFile } from './functions/resizeImageToFile.js'
+import { ImageResizer, ProcessedImage } from './ImageResizer.js'
 
 export class ImageHandler {
   private uploadedFiles: string[] = []
   private readonly allowedTypes = ['image/jpeg', 'image/png', 'image/webp']
+  private readonly resizer: ImageResizer
 
-  public async processFile(file: File): Promise<{ imageUrl: string; formattedImage: any }> {
+  public constructor (resizer = new ImageResizer()){
+    this.resizer = resizer
+  }
+
+  public async processFile(file: File): Promise<ProcessedImage> {
     if (!this.allowedTypes.includes(file.type)) {
       throw new Error('Invalid format, please use JPEG, PNG or WebP')
     }
@@ -16,14 +18,9 @@ export class ImageHandler {
       throw new Error('This file has already been uploaded')
     }
 
+    const processedImage = await this.resizer.resizeToSquare(file)
     this.uploadedFiles.push(file.name)
 
-    const rawImageUrl = createImageUrl(file)
-    const { width, height } = await getImageDimension(rawImageUrl)
-    const formattedImage = scaleToRatio({ height, width, aspectRatio: { width: 1, height: 1 } })
-    const formattedFile = await resizeImageToFile(rawImageUrl, formattedImage, file.name, file.type)
-    const imageUrl = createImageUrl(formattedFile)
-
-    return { imageUrl, formattedImage }
+    return processedImage
   }
 }
