@@ -1,15 +1,20 @@
-import { ImageResizer, ProcessedImage } from './ImageResizer.js'
+import { ResourceType } from '../constants/catanResources.js'
+import { ImageAdapter, ProcessedImage } from './ImageAdapter.js'
+
+export interface ResourceImage extends ProcessedImage {
+  resource: ResourceType
+}
 
 export class ImageHandler {
   private uploadedFiles: string[] = []
   private readonly allowedTypes = ['image/jpeg', 'image/png', 'image/webp']
-  private readonly resizer: ImageResizer
+  private readonly adapter: ImageAdapter
 
-  public constructor (resizer = new ImageResizer()){
-    this.resizer = resizer
+  public constructor ( adapter = new ImageAdapter()){
+    this.adapter = adapter
   }
 
-  public async processFile(file: File): Promise<ProcessedImage> {
+  public async processFile(file: File, resource: ResourceType): Promise<ResourceImage> {
     if (!this.allowedTypes.includes(file.type)) {
       throw new Error('Invalid format, please use JPEG, PNG or WebP')
     }
@@ -18,9 +23,12 @@ export class ImageHandler {
       throw new Error('This file has already been uploaded')
     }
 
-    const processedImage = await this.resizer.resizeToSquare(file)
+    const processedImage = await this.adapter.resizeToSquare(file)
     this.uploadedFiles.push(file.name)
 
-    return processedImage
+    return  { 
+      ...processedImage, 
+      resource
+    }
   }
 }
