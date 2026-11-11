@@ -1,0 +1,186 @@
+import { CoordinateValidator } from './coordinate.js';
+import { NeighbourCalculator } from './neighbours.js';
+import { HexagonGeometry } from './geometry.js';
+import { CoordinatePositioner } from './coordinate-positioner.js';
+import { CoordinateRange } from './coordinate-range.js';
+import { CoordinateRangeFiller } from './coordinate-range-fill.js';
+import { CoordinateLayer } from './coordinate-layer.js';
+import { HexGridBoundsCalculator } from './h-g-bounds.js';
+import { HexGridHexagonCreator } from './h-g-hexagon.js';
+/**
+ * Represents a Midgard hex grid with a specific orientation.
+ */
+export class HexGrid {
+    #orientation;
+    #neighbourCalculator;
+    #coordinatePositioner;
+    #hexagonGeometry;
+    #hexagonCreator;
+    #boundsCalculator;
+    /**
+     * Creates a new Midgard hex grid.
+     *
+     * @param orientation - The orientation of the hex grid.
+     */
+    constructor(orientation) {
+        this.#orientation = orientation;
+        this.#neighbourCalculator =
+            new NeighbourCalculator(orientation);
+        this.#coordinatePositioner =
+            new CoordinatePositioner(orientation);
+        this.#hexagonGeometry =
+            new HexagonGeometry(orientation);
+        this.#hexagonCreator =
+            new HexGridHexagonCreator(this.#coordinatePositioner, this.#hexagonGeometry);
+        this.#boundsCalculator =
+            new HexGridBoundsCalculator(this.#coordinatePositioner, this.#hexagonGeometry);
+    }
+    /**
+     * Creates one single hexagon without any surrounding fill.
+     *
+     * @param options - The geometric size of the hexagon.
+     * @returns One complete hexagon prepared for rendering.
+     */
+    createSingleHexagon(options) {
+        const coordinates = this.getCoordinateRange({
+            width: 1,
+            height: 1
+        }, {
+            fillAround: false
+        });
+        const coordinate = coordinates[0];
+        if (coordinate === undefined) {
+            throw new Error('Could not create the single hexagon coordinate.');
+        }
+        return this.#hexagonCreator.createHexagon(coordinate, options.hexDiameter);
+    }
+    /**
+     * Creates a complete Midgard grid around a skeleton.
+     *
+     * Surrounding coordinates are always filled automatically.
+     * The returned hexagons are sorted for rendering and include
+     * calculated z-index values.
+     *
+     * @param options - The hexagon size and skeleton dimensions.
+     * @returns All layered hexagons belonging to the complete grid.
+     * @throws RangeError If the hexagon diameter is invalid.
+     */
+    createGrid(options) {
+        HexGridHexagonCreator.validateHexDiameter(options.hexDiameter);
+        const coordinates = this.getLayeredCoordinateRange({
+            width: options.skeletonWidth,
+            height: options.skeletonHeight
+        }, {
+            fillAround: true
+        });
+        return coordinates.map((coordinate) => {
+            const hexagon = this.#hexagonCreator.createHexagon(coordinate, options.hexDiameter);
+            return {
+                ...hexagon,
+                zIndex: coordinate.zIndex
+            };
+        });
+    }
+    /**
+     * Returns the six neighbouring coordinates of a coordinate
+     * using this grid's orientation.
+     *
+     * @param coordinate - The coordinate whose neighbours should be found.
+     * @returns The six neighbouring coordinates.
+     */
+    getNeighbours(coordinate) {
+        return this.#neighbourCalculator.getNeighbours(coordinate);
+    }
+    /**
+     * Checks whether a coordinate is valid in the Midgard hex grid system.
+     *
+     * @param coordinate - The coordinate to validate.
+     * @returns `true` if the coordinate is valid; otherwise `false`.
+     */
+    isValidCoordinate(coordinate) {
+        const validator = new CoordinateValidator();
+        return validator.isValidCoordinate(coordinate);
+    }
+    /**
+     * Calculates the center position of a Midgard coordinate
+     * using this grid's orientation.
+     *
+     * For an x-dominated grid, size represents the
+     * complete width of one hexagon.
+     *
+     * For a y-dominated grid, size represents the
+     * complete height of one hexagon.
+     *
+     * @param coordinate - The Midgard coordinate to position.
+     * @param size - The width or height of one hexagon.
+     * @returns The calculated center point.
+     * @throws RangeError If the size is not positive and finite.
+     */
+    getCenterPosition(coordinate, size) {
+        HexGridHexagonCreator.validateHexDiameter(size);
+        return this.#coordinatePositioner.getCenterPosition(coordinate, size);
+    }
+    /**
+     * Calculates the six corner points of a hexagon
+     * using this grid's orientation.
+     *
+     * @param center - The center point of the hexagon.
+     * @param size - The dimension used to calculate the hexagon.
+     * @returns The six corner points of the hexagon.
+     * @throws RangeError If the size is not positive and finite.
+     */
+    getHexagonPoints(center, size) {
+        HexGridHexagonCreator.validateHexDiameter(size);
+        return this.#hexagonGeometry.getHexagonPoints(center, size);
+    }
+    /**
+     * Calculates the outer geometric bounds of hexagons
+     * represented by Midgard coordinates.
+     *
+     * Each coordinate is first converted to a center position.
+     * The six corner points of every hexagon are then calculated,
+     * and the outermost values are used to determine the bounds.
+     *
+     * @param coordinates - The coordinates whose bounds should be calculated.
+     * @param size - The width or height of one hexagon.
+     * @returns The outer bounds of all hexagons.
+     * @throws RangeError If the size is not positive and finite.
+     */
+    getGridBounds(coordinates, size) {
+        HexGridHexagonCreator.validateHexDiameter(size);
+        return this.#boundsCalculator.getGridBounds(coordinates, size);
+    }
+    /**
+     * Creates all coordinates belonging to a coordinate range
+     * using this grid's orientation.
+     *
+     * @param range - The range skeleton to create.
+     * @param options - Options controlling how the range is created.
+     * @returns All coordinates belonging to the range.
+     */
+    getCoordinateRange(range, options = {}) {
+        const coordinateRange = new CoordinateRange({
+            ...range,
+            orientation: this.#orientation
+        });
+        const coordinateRangeFiller = new CoordinateRangeFiller(coordinateRange);
+        return coordinateRangeFiller.getCoordinateRange(options);
+    }
+    /**
+     * Creates a coordinate range prepared for rendering.
+     *
+     * The coordinates are sorted by y and then x.
+     * The first y row receives z-index 100 and each
+     * following row increases the z-index by 100.
+     *
+     * @param range - The range skeleton to create.
+     * @param options - Options controlling how the range is created.
+     * @returns The sorted coordinates with calculated z-index values.
+     */
+    getLayeredCoordinateRange(range, options = {}) {
+        const coordinates = this.getCoordinateRange(range, options);
+        const coordinateLayer = new CoordinateLayer(coordinates);
+        return coordinateLayer.getLayeredCoordinates();
+    }
+}
+//# sourceMappingURL=hex-grid.js.map

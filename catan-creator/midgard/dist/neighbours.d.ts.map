@@ -1,0 +1,1 @@
+{"version":3,"file":"neighbours.d.ts","sourceRoot":"","sources":["../src/neighbours.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,UAAU,EAAE,MAAM,iBAAiB,CAAA;AACjD,OAAO,KAAK,EAAE,eAAe,EAAE,MAAM,kBAAkB,CAAA;AAEvD;;;;;GAKG;AACH,qBAAa,mBAAmB;;IAG9B;;;;OAIG;IACH,YAAY,WAAW,EAAE,eAAe,EAEvC;IA4GD;;;;;;OAMG;IACH,aAAa,CACX,UAAU,EAAE,UAAU,GACrB,UAAU,EAAE,CAMd;CACF"}

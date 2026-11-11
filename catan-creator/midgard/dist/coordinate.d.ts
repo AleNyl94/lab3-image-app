@@ -1,0 +1,30 @@
+/**
+ * Represents a coordinate in the Midgard hex grid system.
+ *
+ * A valid Midgard coordinate uses non-negative integers where x and y
+ * have the same parity: both are even or both are odd.
+ */
+export type Coordinate = {
+    x: number;
+    y: number;
+};
+/**
+ * Validates coordinates in the Midgard hex grid system.
+ */
+export declare class CoordinateValidator {
+    /**
+     * Checks whether a coordinate is valid in the Midgard hex grid system.
+     *
+     * Both x and y must be non-negative integers.
+     * A coordinate is valid when x and y have the same parity:
+     * both are even or both are odd.
+     *
+     * For example, (10, 10), (11, 11), and (0, 2) are valid,
+     * while (10, 11), (-1, -1), and (10.5, 10.5) are invalid.
+     *
+     * @param coordinate - The coordinate to validate.
+     * @returns `true` if the coordinate is valid; otherwise `false`.
+     */
+    isValidCoordinate(coordinate: Coordinate): boolean;
+}
+//# sourceMappingURL=coordinate.d.ts.map
