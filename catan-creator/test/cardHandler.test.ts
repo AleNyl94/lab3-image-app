@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach } from 'vitest'
 import { CardHandler } from '../src/models/CardHandler.js'
 import { RESOURCE_TYPES } from '../src/constants/catanResources.js'
 
-describe('CardHandler', () => {
+describe('Tests the functionality for CardHandler, mounting images and resources', () => {
   let cardHandler: CardHandler
 
   beforeEach(() => {

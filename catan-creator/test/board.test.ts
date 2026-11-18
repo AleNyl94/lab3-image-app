@@ -1,9 +1,10 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { Board } from '../src/models/Board.js'
+import { ResourceImage } from '../src/models/ImageHandler.js'
+import { ResourceType } from '../src/constants/catanResources.js'
 
 describe('Board', () => {
   let board: Board
-
   beforeEach(() => {
     board = new Board()
   })
@@ -25,7 +26,15 @@ describe('Board', () => {
   })
 
   it('should apply image to all tiles of the specified resource', () => {
-    board.applyImage({ resource: 'desert', imageUrl: 'blob:desert-img' })
+    const resourceDesert: ResourceType = 'desert' as any
+    const mockResoureImage = { 
+      height: 100,
+      width: 100,
+      bytesPerPixel: 3,
+      imageUrl: 'blob:desert-img',
+      resource: resourceDesert
+    } as any
+    board.applyImage(mockResoureImage)
 
     const desertTiles = board.getTiles().filter(t => t.getResource() === 'desert')
     expect(desertTiles.every(t => t.getImage() === 'blob:desert-img')).toBe(true)

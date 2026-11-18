@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { Tile } from '../src/models/Tile.js'
 import { Card } from '../src/models/Card.js'
 
-describe('Tile', () => {
+describe('Tests for tiles and cards', () => {
   it('should return the resource type it was created with', () => {
     const tile = new Tile('mountains')
     expect(tile.getResource()).toBe('mountains')

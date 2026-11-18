@@ -1,7 +1,7 @@
 import { RESOURCE_TYPES, type ResourceType } from '../constants/catanResources.js'
 import { ImageHandler, type ResourceImage } from '../models/ImageHandler.js'
 import { CardHandler } from '../models/CardHandler.js'
-import { CardView } from '../view/ImageView.js'
+import { CardView } from '../view/CardView.js'
 import { BoardView } from '../view/BoardView.js'
 import { Board } from '../models/Board.js'
 

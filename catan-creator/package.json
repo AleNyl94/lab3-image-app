@@ -8,12 +8,13 @@
     "dev": "vite",
     "start": "tsx src/index.ts",
     "build": "vite build",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run",
     "preview": "vite preview"
   },
   "dependencies": {
     "image-processing-module": "file:./lab2-ts-module",
-    "midgard-hex-grid": "file:./midgard"
+    "midgard-hex-grid": "file:./midgard",
+    "vitest": "^5.1.0"
   },
   "repository": {
     "type": "git",
