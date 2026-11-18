@@ -80,6 +80,7 @@ catan-creator/
 Clone the repo and install the required packages:
 
 ```bash
+cd catan-creator/
 npm install
 ```
 
