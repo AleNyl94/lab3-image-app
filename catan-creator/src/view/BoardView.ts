@@ -1,5 +1,5 @@
 import { HexGrid } from 'midgard-hex-grid'
-import type { Coordinate, Point } from 'midgard-hex-grid'
+import type { Coordinate } from 'midgard-hex-grid'
 import { Tile } from '../models/Tile.js'
 
 export class BoardView {
